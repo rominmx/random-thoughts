@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" content="{{meta_description}}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="{{asset "css/style.min.css"}}" />
+    {{ghost_head}}
+</head>
+<body>
+    <header class="header-wrap">
+        <div class="header">
+            {{> "header"}}
+        </div>
+    </header>
+    <main class="content" role="main">
+        {{{body}}}
+    </main>
+    <footer class="footer-wrap">
+        <div class="footer">
+            {{> "footer"}}
+        </div>
+    </footer>
+    {{ghost_foot}}
+</body>
+</html>
