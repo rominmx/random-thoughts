@@ -2,21 +2,36 @@
 
 <ul class="posts">
 {{#foreach posts}}
-    <li class="{{post_class}}">
-        <img src="{{image}}" alt="" />
-        <header class="post-header">
-            <h2><a href="{{url}}">{{title}}</a></h2>
-        </header>
-        <section class="post-excerpt">
-            <p>{{excerpt words="26"}} <a class="read-more" href="{{url}}">...</a></p>
-        </section>
-        <footer class="post-meta">
-            {{!author}}
-            {{tags prefix=" on "}}
-            <time class="post-date" datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMMM YYYY"}}</time>
-        </footer>
-    </li>
+    {{#if featured}}
+        <li class="post-item post-item--featured" style="background-image: url('{{image}}')">
+            <article class="post post--featured">
+                <h2 class="post__head post__head--featured"><a href="{{url}}">{{title}}</a></h2>
+                <p class="post__announce post__announce--featured">
+                    {{#if meta_description}}
+                        {{meta_description}}
+                    {{else}}
+                        {{excerpt words="32"}}
+                    {{/if}}
+                </p>
+                <section class="post__info post-info">
+                    {{> "index/date"}}
+                    {{> "index/tags"}}
+                </section>
+            </article>
+        </li>
+    {{else}}
+        <li class="post-item post-item--regular">
+            <article class="post">
+                <h2 class="post__head post__head--regular"><a href="{{url}}">{{title}}</a></h2>
+                <section class="post__info post-info">
+                    {{> "index/date"}}
+                    {{> "index/tags"}}
+                </section>
+                <p class="post__announce post__announce--regular">{{excerpt words="32"}}</p>
+            </article>
+        </li>
+    {{/if}}
 {{/foreach}}
 </ul>
 
-{{pagination}}
+{{!pagination}}
