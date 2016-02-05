@@ -17,6 +17,7 @@ gulp.task('sass', function() {
         .pipe(gulp.dest('./assets/css'));
 });
 
-gulp.task('watch', function() {
-    gulp.watch(['./assets/scss/style.scss', './assets/scss/**/*.scss'], ['sass'])
+gulp.task('transfer', function() {
+    return gulp.src('./bower_components/include-media/dist/*.scss')
+        .pipe(gulp.dest('./assets/scss/vendor'));
 });

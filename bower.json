@@ -1,0 +1,18 @@
+{
+  "name": "Random Thoughts",
+  "description": "ghost theme",
+  "main": "",
+  "license": "MIT",
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "include-media": "^1.4.2"
+  }
+}
