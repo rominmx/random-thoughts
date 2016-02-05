@@ -1,0 +1,65 @@
+@mixin nullify($params...) {
+    @each $param in $params {
+        #{$param}: 0;
+    }
+}
+
+@mixin size($args...) {
+    $len: length($args);
+    width: nth($args, 1);
+    height: nth($args, $len);
+}
+
+@mixin color($args...) {
+    $len: length($args);
+    color: nth($args, 1);
+    @if $len == 2 {
+        background-color: nth($args, 2);
+    }
+}
+
+@mixin parent($selector) {
+    @at-root #{$selector} & {
+        @content;
+    }
+}
+
+@mixin relative($zi) {
+    position: relative;
+    z-index: $zi;
+}
+
+@mixin fixed($zi) {
+    position: fixed;
+    z-index: $zi;
+}
+
+@mixin absolute($zi) {
+    position: absolute;
+    z-index: $zi;
+}
+
+@function ems($value, $base: $fz) {
+    @return 0em + $value / $base;
+}
+
+@function rems($value) {
+    @return 0rem + $value / $rem;
+}
+
+@mixin sticky-footer($footer-height, $header-selector: '.page-wrap', $footer-selector: '.footer-wrap') {
+    #{$header-selector} {
+        min-height: 100%;
+        margin-bottom: -$footer-height;
+
+        &:after {
+            content: '';
+            display: block;
+            height: $footer-height;
+        }
+    }
+
+    #{$footer-selector} {
+        height: $footer-height;
+    }
+}

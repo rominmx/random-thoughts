@@ -1,7 +1,8 @@
-$font: Arial, sans-serif;
-$color: #000;
-
-body {
-    font-family: $font;
-    color: $color;
-}
+@import 'common/variables';
+@import 'common/mixins';
+@import 'common/adaptive';
+@import 'common/reset';
+@import 'common/placeholders';
+@import 'common/layout';
+@import 'partials/header';
+@import 'partials/footer';

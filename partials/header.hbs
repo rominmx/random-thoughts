@@ -1,1 +1,7 @@
-Header
+<header class="header">
+    {{#if @blog.logo}}
+        <a href="{{@blog.url}}" class="header__logo"><img src="{{@blog.logo}}" alt="{{@blog.title}}"></a>
+    {{/if}}
+    <a href="{{@blog.url}}" class="header__link">{{@blog.title}}</a>
+    <strong class="header__description">{{@blog.description}}</strong>
+</header>

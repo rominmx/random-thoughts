@@ -1,0 +1,33 @@
+.header {
+    @include color($header-color, $header-bg);
+    height: $header-height;
+    padding-right: $padding;
+    display: flex;
+    align-items: center;
+
+    &__logo {
+        @include size($header-height);
+        @extend %link-reset;
+
+
+        img {
+            @include size(100%, auto);
+        }
+    }
+
+    &__link {
+        @extend %link-reset;
+        font-size: 36px;
+        color: $header-color;
+        font-family: $font-bold;
+        font-weight: 700;
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    &__description {
+        font-size: 28px;
+        font-family: $font-light;
+        font-weight: 100;
+    }
+}

@@ -1,0 +1,86 @@
+$phone: 480px !default;
+$tablet-vert: 768px !default;
+$tablet: 1280px !default;
+
+@mixin phone {
+    @media screen and (max-width: $phone) {
+        @content;
+    }
+}
+
+@mixin not-phone {
+    @media screen and (min-width: $phone + 1) {
+        @content;
+    }
+}
+
+@mixin tablet-vert {
+    @media screen and (min-width: $phone + 1) and (max-width: $tablet-vert) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media screen and (min-width: $tablet-vert + 1) and (max-width: $tablet) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media screen and (min-width: $tablet + 1) {
+        @content;
+    }
+}
+
+@mixin tablet-vert-minus {
+    @media screen and (max-width: $tablet-vert + 1px) {
+        @content;
+    }
+}
+
+@mixin tablet-vert-plus {
+    @media screen and (min-width: $tablet-vert + 1px) {
+        @content;
+    }
+}
+
+@mixin print {
+    @media print {
+        @content;
+    }
+}
+
+@mixin screen {
+    @media screen {
+        @content;
+    }
+}
+
+/* Shortcuts */
+@mixin device($device) {
+    @if $device == 'phone' {
+        @include phone {
+            @content;
+        }
+    } @else if $device == 'tablet-vert' {
+        @include tablet-vert {
+            @content;
+        }
+    } @else if $device == 'tablet' {
+        @include tablet {
+            @content;
+        }
+    } @else if $device == 'desktop' {
+        @include desktop {
+            @content;
+        }
+    } @else if $device == 'tablet-vert-plus' {
+        @include tablet-vert-plus {
+            @content;
+        }
+    } @else if $device == 'tablet-vert-minus' {
+        @include tablet-vert-minus {
+            @content;
+        }
+    }
+}

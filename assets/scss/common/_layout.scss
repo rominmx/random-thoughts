@@ -1,0 +1,9 @@
+@include sticky-footer($footer-height, '.page-wrap', '.footer');
+
+html {
+    font: $rem $font-regular;
+}
+
+a {
+    color: $color-link;
+}

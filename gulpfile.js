@@ -16,3 +16,7 @@ gulp.task('sass', function() {
         .pipe(rename({suffix: '.min'}))
         .pipe(gulp.dest('./assets/css'));
 });
+
+gulp.task('watch', function() {
+    gulp.watch(['./assets/scss/style.scss', './assets/scss/**/*.scss'], ['sass'])
+});

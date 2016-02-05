@@ -1,0 +1,40 @@
+%ios-link-fix {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    @include nullify(margin, padding);
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+span:active {
+    @extend %ios-link-fix;
+}
+
+a {
+    @extend %ios-link-fix;
+    &:link, &:visited, &:hover, &:active {
+        outline: 0;
+    }
+}
+
+/* IE img borders fix */
+a, img {
+    border:none;
+    outline:none;
+}
+a img {
+    border: 0;
+}
+
+figure {
+    margin: 0;
+}
