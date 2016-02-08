@@ -1,7 +1,6 @@
 .header {
     @include color($header-color, $header-bg);
     height: $header-height;
-    //padding-right: $padding;
     display: flex;
     align-items: center;
 
@@ -14,29 +13,34 @@
             @include size(100%, auto);
         }
     }
+}
 
+.header-info {
     &__link {
         @extend %link-reset;
         @include media('>desktop') {
             font-size: 36px;
         }
-        
+
         @include media('<=desktop') {
             font-size: 32px;
         }
-        
+
         color: $header-color;
-        font-family: $font-bold;
+        font-family: $font-headings;
         font-weight: 700;
-        padding-left: 18px;
-        padding-right: 18px;
+        padding-left: 24px;
+        padding-right: 12px;
     }
 
     &__description {
-        font-size: 28px;
+        @each $mq, $fz in ('>desktop', 28px), ('<=desktop', 24px) {
+            @include media($mq) {
+                font-size: $fz;
+            }
+        }
         font-family: $font-light;
         font-weight: 100;
-
         @include media('<=tablet') {
             display: none;
         }

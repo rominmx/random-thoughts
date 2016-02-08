@@ -78,10 +78,10 @@
         a {
             @extend %link-reset;
             font-weight: 700;
-            font-family: $font-bold;
+            font-family: $font-headings;
         }
 
-        @each $type, $fz in (featured, 64px), (regular, 28px) {
+        @each $type, $fz in (featured, 64px), (regular, 24px) {
             &--#{$type} {
                 font-size: $fz;
             }
@@ -124,5 +124,34 @@
                 font-size: 16px;
             }
         }
+    }
+}
+
+.calendar {
+    @each $type, $color in (featured, $white), (regular, $black) {
+        &--#{$type} {
+            fill: $color;
+        }
+    }
+}
+
+.post-date {
+    display: flex;
+    align-items: center;
+
+    @each $type, $fz in (regular, 16px), (featured, 22px) {
+        &--#{$type} {
+            font-size: $fz;
+        }
+    }
+
+    &__icon {
+        @include size(ems(32px, 16px));
+    }
+    
+    &__time {
+        font-family: $font-headings;
+        font-weight: 700;
+        margin-left: ems(8px, 16px);
     }
 }

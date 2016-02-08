@@ -8,7 +8,12 @@
                 <h2 class="post__head post__head--featured">{{> "index/head"}}</h2>
                 <p class="post__announce post__announce--featured">{{> "index/announce"}}</p>
                 <section class="post__info post-info">
-                    {{> "index/date"}}
+                    <div class="post-info__date post-date post-date--featured">
+                        <svg class="post-date__icon post-date__icon--featured">
+                            <use xlink:href="#calendar-icon" class="calendar calendar--featured"></use>
+                        </svg>
+                        <time class="post-date__time" datetime="{{date format="DD-MM-YYYY"}}">{{date format="DD.MM.YYYY"}}</time>
+                    </div>
                     {{> "index/tags"}}
                 </section>
             </article>
@@ -18,7 +23,12 @@
             <article class="post post--regular">
                 <h2 class="post__head post__head--regular">{{> "index/head"}}</h2>
                 <section class="post__info post-info">
-                    {{> "index/date"}}
+                    <div class="post-info__date post-date post-date--regular">
+                        <svg class="post-date__icon post-date__icon--regular">
+                            <use xlink:href="#calendar-icon" class="calendar calendar--regular"></use>
+                        </svg>
+                        <time class="post-date__time" datetime="{{date format="DD-MM-YYYY"}}">{{date format="DD.MM.YYYY"}}</time>
+                    </div>
                     {{> "index/tags"}}
                 </section>
                 <p class="post__announce post__announce--regular">{{> "index/announce"}}</p>
