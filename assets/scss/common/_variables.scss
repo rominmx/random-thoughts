@@ -1,14 +1,17 @@
 /* Colors */
 $color-main: #2772db;
 $color-link: $color-main;
+$black: #000 !default;
+$white: #fff !default;
+
 
 /* Fonts */
 $font-regular: 'Roboto Regular', sans-serif;
-$font-bold: 'Roboto Black', sans-serif;
+$font-bold: 'Roboto Slab Bold', sans-serif;
 $font-light: 'Roboto Light', sans-serif;
 $rem: 16px;
 
-$padding: 24px;
+$padding: (desktop: 36px, tablet: 24px);
 
 /* Header */
 $header-bg: $color-main;

@@ -3,7 +3,18 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-left: $padding;
-    padding-right: $padding;
-    font-size: 20px;
+
+    @each $mq, $padding-type in ('>desktop', desktop), ('<=desktop', tablet) {
+        @include media($mq) {
+            $size: map-get($padding, $padding-type);
+            padding-left: $size;
+            padding-right: $size;
+        }
+    }
+
+    @each $mq, $fz in ('>desktop', 20px), ('<=desktop', 16px) {
+        @include media($mq) {
+            font-size: $fz;
+        }
+    }
 }

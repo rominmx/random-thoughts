@@ -1,1 +1,5 @@
-<p class="post__announce">{{excerpt words="32"}}</p>
+{{#if meta_description}}
+    {{meta_description}}
+{{else}}
+    {{excerpt words="32"}}
+{{/if}}

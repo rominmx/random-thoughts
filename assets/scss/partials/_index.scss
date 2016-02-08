@@ -10,7 +10,15 @@
     &--featured {
         flex-basis: 100%;
         order: 1;
-        height: 680px;
+
+        @include media('>desktop') {
+            height: 680px;
+        }
+
+        @include media('<=desktop') {
+            height: auto;
+        }
+
         display: flex;
         justify-content: center;
         align-items: center;
@@ -28,7 +36,14 @@
     }
     
     &--regular {
-        flex-basis: 33.333333%;
+        @include media('>=desktop') {
+            flex-basis: 33.33333%;
+        }
+
+        @include media('<desktop') {
+            flex-basis: 100%;
+        }
+
         order: 2;
     }
 }
@@ -36,14 +51,29 @@
 .post {
 
     &--featured {
-        flex-basis: 66.66666%;
+        @include media('>desktop') {
+            flex-basis: 66.66666%;
+        }
+        
+        @include media('<=desktop') {
+            padding: 3 * map-get($padding, tablet) map-get($padding, tablet);
+            flex-basis: 100%;
+        }
+        
         color: #fff;
         @include relative(3);
     }
 
+    &--regular {
+        @each $mq, $padding-type in ('>desktop', desktop), ('<=desktop', tablet) {
+            padding: map-get($padding, $padding-type);
+        }
+    }
+
     &__head {
         margin-top: 0;
-        margin-bottom: ems(36px, 96px);
+        margin-bottom: ems(32px, 96px);
+        line-height: 1;
 
         a {
             @extend %link-reset;
@@ -51,25 +81,47 @@
             font-family: $font-bold;
         }
 
-        @each $type, $fz in (featured, 96px), (regular, 36px) {
+        @each $type, $fz in (featured, 64px), (regular, 28px) {
             &--#{$type} {
                 font-size: $fz;
             }
         }
 
-        &--featured {
+        @each $type, $color in (featured, $white), (regular, $black) {
+            &--#{$type} {
 
-            a {
-                color: #fff;
+                a {
+                    color: $color;
+                }
+            }
+        }
+
+        &--regular {
+            a:hover {
+                color: $color-main;
             }
         }
     }
 
     &__announce {
 
-        @each $type, $fz in (featured, 24px), (regular, 18px) {
-            &--#{$type} {
-                font-size: $fz;
+        &--featured {
+            @include media('>desktop') {
+                font-size: 24px;
+            }
+            
+            @include media('<=desktop') {
+                font-size: 18px;
+            }
+        }
+        
+        &--regular {
+            @include media('>desktop') {
+                font-size: 18px;
+            }
+
+            @include media('<=desktop') {
+                font-size: 16px;
             }
         }
     }

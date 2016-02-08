@@ -5,14 +5,8 @@
     {{#if featured}}
         <li class="post-item post-item--featured" style="background-image: url('{{image}}')">
             <article class="post post--featured">
-                <h2 class="post__head post__head--featured"><a href="{{url}}">{{title}}</a></h2>
-                <p class="post__announce post__announce--featured">
-                    {{#if meta_description}}
-                        {{meta_description}}
-                    {{else}}
-                        {{excerpt words="32"}}
-                    {{/if}}
-                </p>
+                <h2 class="post__head post__head--featured">{{> "index/head"}}</h2>
+                <p class="post__announce post__announce--featured">{{> "index/announce"}}</p>
                 <section class="post__info post-info">
                     {{> "index/date"}}
                     {{> "index/tags"}}
@@ -21,13 +15,13 @@
         </li>
     {{else}}
         <li class="post-item post-item--regular">
-            <article class="post">
-                <h2 class="post__head post__head--regular"><a href="{{url}}">{{title}}</a></h2>
+            <article class="post post--regular">
+                <h2 class="post__head post__head--regular">{{> "index/head"}}</h2>
                 <section class="post__info post-info">
                     {{> "index/date"}}
                     {{> "index/tags"}}
                 </section>
-                <p class="post__announce post__announce--regular">{{excerpt words="32"}}</p>
+                <p class="post__announce post__announce--regular">{{> "index/announce"}}</p>
             </article>
         </li>
     {{/if}}

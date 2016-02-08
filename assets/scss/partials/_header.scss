@@ -1,7 +1,7 @@
 .header {
     @include color($header-color, $header-bg);
     height: $header-height;
-    padding-right: $padding;
+    //padding-right: $padding;
     display: flex;
     align-items: center;
 
@@ -17,7 +17,14 @@
 
     &__link {
         @extend %link-reset;
-        font-size: 36px;
+        @include media('>desktop') {
+            font-size: 36px;
+        }
+        
+        @include media('<=desktop') {
+            font-size: 32px;
+        }
+        
         color: $header-color;
         font-family: $font-bold;
         font-weight: 700;
@@ -29,5 +36,9 @@
         font-size: 28px;
         font-family: $font-light;
         font-weight: 100;
+
+        @include media('<=tablet') {
+            display: none;
+        }
     }
 }
