@@ -2,6 +2,7 @@
     @extend %list-reset;
     display: flex;
     flex-wrap: wrap;
+    margin-top: -$header-height;
 }
 
 .post-item {
@@ -24,7 +25,7 @@
         align-items: center;
         background-size: 100%;
         background-repeat: no-repeat;
-        background-position: center;
+        background-position: center top;
         @include relative(1);
 
         &::after {
@@ -45,18 +46,25 @@
         }
 
         order: 2;
+
+        @include media('<=tablet') {
+            background-color: $grey;
+            padding: map-get($padding, tablet) map-get($padding, tablet) 0;
+        }
     }
 }
 
 .post {
 
     &--featured {
+        font-size: 22px;
+
         @include media('>desktop') {
             flex-basis: 66.66666%;
         }
         
         @include media('<=desktop') {
-            padding: 3 * map-get($padding, tablet) map-get($padding, tablet);
+            padding: #{80px + $header-height} map-get($padding, tablet) 80px;
             flex-basis: 100%;
         }
         
@@ -68,61 +76,62 @@
         @each $mq, $padding-type in ('>desktop', desktop), ('<=desktop', tablet) {
             padding: map-get($padding, $padding-type);
         }
-    }
 
-    &__head {
-        margin-top: 0;
-        margin-bottom: ems(32px, 96px);
-        line-height: 1;
-
-        a {
-            @extend %link-reset;
-            font-weight: 700;
-            font-family: $font-headings;
-        }
-
-        @each $type, $fz in (featured, 64px), (regular, 24px) {
-            &--#{$type} {
-                font-size: $fz;
-            }
-        }
-
-        @each $type, $color in (featured, $white), (regular, $black) {
-            &--#{$type} {
-
-                a {
-                    color: $color;
-                }
-            }
-        }
-
-        &--regular {
-            a:hover {
-                color: $color-main;
-            }
+        @include media('<=tablet') {
+            background-color: $white;
         }
     }
 
     &__announce {
+        font-size: 1em;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+}
+
+.post-head {
+    $padding: ems(12px, 48px);
+
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 1.16;
+    font-size: ems(48px, 22px);
+
+    a {
+        @extend %link-reset;
+        font-weight: 700;
+        font-family: $font-headings;
+    }
+
+    &--featured {
+        margin-left: $padding;
+        margin-right: $padding;
+    }
+    
+    &__text {
 
         &--featured {
-            @include media('>desktop') {
-                font-size: 24px;
-            }
-            
-            @include media('<=desktop') {
-                font-size: 18px;
+            display: inline;
+            background-color: $white;
+            box-shadow: $padding 0 0 $white, -$padding 0 0 $white;
+
+            a {
+                color: #777;
             }
         }
-        
-        &--regular {
-            @include media('>desktop') {
-                font-size: 18px;
-            }
+    }
+}
 
-            @include media('<=desktop') {
-                font-size: 16px;
-            }
+.post-info {
+    display: flex;
+    align-items: center;
+    margin-top: ems(26px, 22px);
+    margin-bottom: ems(26px, 22px);
+
+    @include parent('.post--regular') {
+        @include media('>tablet') {
+            flex-direction: column;
+            align-items: flex-start;
         }
     }
 }
@@ -138,12 +147,8 @@
 .post-date {
     display: flex;
     align-items: center;
-
-    @each $type, $fz in (regular, 16px), (featured, 22px) {
-        &--#{$type} {
-            font-size: $fz;
-        }
-    }
+    font-size: 1em;
+    margin-right: ems(24px, 22px);
 
     &__icon {
         @include size(ems(32px, 16px));
@@ -153,5 +158,22 @@
         font-family: $font-headings;
         font-weight: 700;
         margin-left: ems(8px, 16px);
+    }
+}
+
+.tags {
+    @extend %list-reset;
+    display: flex;
+}
+
+.tag {
+    font-size: 1em;
+    margin-right: ems(12px, 22px);
+    @extend %link-reset;
+    font-weight: 700;
+    font-family: $font-headings;
+
+    &--featured {
+        color: $white;
     }
 }

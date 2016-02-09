@@ -1,11 +1,20 @@
+$em: 24px;
+
 .header {
-    @include color($header-color, $header-bg);
-    height: $header-height;
+    //@include color($header-color, $header-bg);
+    color: $header-color;
+    font-size: rems($em);
+    height: ems($header-height, $em);
     display: flex;
     align-items: center;
+    @include relative(3);
+    
+    @include media('<=desktop') {
+        padding-left: map-get($padding, tablet);
+    }
 
     &__logo {
-        @include size($header-height);
+        @include size(ems($header-height, $em));
         @extend %link-reset;
 
 
@@ -17,28 +26,28 @@
 
 .header-info {
     &__link {
+        $fz: 32px;
         @extend %link-reset;
-        @include media('>desktop') {
-            font-size: 36px;
-        }
-
-        @include media('<=desktop') {
-            font-size: 32px;
-        }
-
+        //@each $mq, $fs in ('>desktop', 36px), ('<=desktop', 32px) {
+        //    @include media($mq) {
+        //        font-size: ems($fs, $fz);
+        //    }
+        //}
+        font-size: ems($fz, $em);
         color: $header-color;
         font-family: $font-headings;
         font-weight: 700;
-        padding-left: 24px;
-        padding-right: 12px;
+        padding-left: ems(24px, $fz);
+        padding-right: ems(12px, $fz);
     }
 
     &__description {
-        @each $mq, $fz in ('>desktop', 28px), ('<=desktop', 24px) {
-            @include media($mq) {
-                font-size: $fz;
-            }
-        }
+        font-size: 1em;
+        //@each $mq, $fs in ('>desktop', 28px), ('<=desktop', 24px) {
+        //    @include media($mq) {
+        //        font-size: ems($fs, $fz);
+        //    }
+        //}
         font-family: $font-light;
         font-weight: 100;
         @include media('<=tablet') {
