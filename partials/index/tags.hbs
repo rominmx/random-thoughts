@@ -1,9 +1,7 @@
 {{#if tags}}
-    <ul class="post-info__tags tags">
+    <nav class="post-info__tags tags">
         {{#foreach tags}}
-            <li class="tag">
-                <a href="{{url}}" class="tag__link">{{name}}</a>
-            </li>
+            <a href="{{url}}" class="tag">#{{name}}</a>
         {{/foreach}}
-    </ul>
+    </nav>
 {{/if}}

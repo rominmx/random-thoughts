@@ -3,7 +3,7 @@
 <ul class="posts">
 {{#foreach posts}}
     {{#if featured}}
-        <li class="post-item post-item--featured" style="background-image: url('{{image}}')">
+        <li class="post-item post-item--featured{{#if image}} post-item--faded{{/if}}" {{> index/background}}>
             <article class="post post--featured">
                 <h2 class="post__head post-head post-head--featured">
                     <strong class="post-head__text post-head__text--featured">
@@ -11,47 +11,23 @@
                     </strong>
                 </h2>
                 <section class="post__info post-info">
-                    <div class="post-info__date post-date">
-                        <svg class="post-date__icon">
-                            <use xlink:href="#calendar-icon" class="calendar calendar--featured"></use>
-                        </svg>
-                        <time class="post-date__time" datetime="{{date format="DD-MM-YYYY"}}">{{date format="DD.MM.YYYY"}}</time>
-                    </div>
-                    {{#if tags}}
-                        <nav class="post-info__tags tags">
-                            {{#foreach tags}}
-                                <a href="{{url}}" class="tag tag--featured">#{{name}}</a>
-                            {{/foreach}}
-                        </nav>
-                    {{/if}}
+                    {{> index/date type="featured"}}
+                    {{> index/tags}}
                 </section>
-                <p class="post__announce post__announce--featured">{{> "index/announce"}}</p>
+                {{> index/announce}}
             </article>
         </li>
     {{else}}
         <li class="post-item post-item--regular">
             <article class="post post--regular">
-                <h2 class="post__head post-head post-head--regular">
-                    <strong class="post-head__text post-head__text--regular">
-                        <a href="{{url}}">{{title}}</a>
-                    </strong>
+                <h2 class="post__head post-head post-head--regular{{#if image}} post-head--faded{{/if}}" {{> index/background}}>
+                    <a href="{{url}}">{{title}}</a>
                 </h2>
                 <section class="post__info post-info">
-                    <div class="post-info__date post-date">
-                        <svg class="post-date__icon">
-                            <use xlink:href="#calendar-icon" class="calendar calendar--regular"></use>
-                        </svg>
-                        <time class="post-date__time" datetime="{{date format="DD-MM-YYYY"}}">{{date format="DD.MM.YYYY"}}</time>
-                    </div>
-                    {{#if tags}}
-                        <nav class="post-info__tags tags">
-                            {{#foreach tags}}
-                                <a href="{{url}}" class="tag tag--regular">#{{name}}</a>
-                            {{/foreach}}
-                        </nav>
-                    {{/if}}
+                    {{> index/date type="regular"}}
+                    {{> index/tags}}
                 </section>
-                <p class="post__announce post__announce--regular">{{> "index/announce"}}</p>
+                {{> index/announce}}
             </article>
         </li>
     {{/if}}

@@ -1,3 +1,12 @@
+%faded {
+    &::after {
+        content: '';
+        @include absolute(2);
+        @include nullify(left, top, right, bottom);
+        background-color: rgba(0,0,0,0.3);
+    }
+}
+
 .posts {
     @extend %list-reset;
     display: flex;
@@ -7,6 +16,10 @@
 
 .post-item {
     flex-grow: 1;
+    
+    &--faded {
+        @extend %faded;
+    }
 
     &--featured {
         flex-basis: 100%;
@@ -27,13 +40,6 @@
         background-repeat: no-repeat;
         background-position: center top;
         @include relative(1);
-
-        &::after {
-            content: '';
-            @include absolute(2);
-            @include nullify(left, top, right, bottom);
-            background-color: rgba(0,0,0,0.3);
-        }
     }
     
     &--regular {
@@ -50,6 +56,7 @@
         @include media('<=tablet') {
             background-color: $grey;
             padding: map-get($padding, tablet) map-get($padding, tablet) 0;
+            font-size: 18px;
         }
     }
 }
@@ -84,18 +91,17 @@
 
     &__announce {
         font-size: 1em;
-        margin-top: 0;
+        margin-top: ems(26px, 22px);
         margin-bottom: 0;
     }
 }
 
 .post-head {
-    $padding: ems(12px, 48px);
+    $gap: ems(12px, 48px);
 
     margin-top: 0;
     margin-bottom: 0;
     line-height: 1.16;
-    font-size: ems(48px, 22px);
 
     a {
         @extend %link-reset;
@@ -103,9 +109,35 @@
         font-family: $font-headings;
     }
 
+
     &--featured {
-        margin-left: $padding;
-        margin-right: $padding;
+        margin-left: $gap;
+        margin-right: $gap;
+        font-size: ems(48px, 22px);
+    }
+    
+    &--faded {
+        @extend %faded;
+    }
+    
+    &--regular {
+        @include relative(2);
+
+        @include media('<=tablet') {
+            $margin: map-get($padding, tablet);
+            font-size: 2em;
+            margin-top: -$margin;
+            margin-left: -$margin;
+            margin-right: -$margin;
+            background-color: $color-main;
+
+            a {
+                color: $white;
+                display: block;
+                padding: .5 * $margin $margin;
+                @include relative(3);
+            }
+        }
     }
     
     &__text {
@@ -113,7 +145,7 @@
         &--featured {
             display: inline;
             background-color: $white;
-            box-shadow: $padding 0 0 $white, -$padding 0 0 $white;
+            box-shadow: $gap 0 0 $white, -$gap 0 0 $white;
 
             a {
                 color: #777;
@@ -126,7 +158,6 @@
     display: flex;
     align-items: center;
     margin-top: ems(26px, 22px);
-    margin-bottom: ems(26px, 22px);
 
     @include parent('.post--regular') {
         @include media('>tablet') {
@@ -173,7 +204,7 @@
     font-weight: 700;
     font-family: $font-headings;
 
-    &--featured {
+    @include parent('.post--featured') {
         color: $white;
     }
 }
