@@ -93,6 +93,14 @@
         font-size: 1em;
         margin-top: ems(26px, 22px);
         margin-bottom: 0;
+
+        a {
+            font-weight: 700;
+
+            @include parent('.post--featured') {
+                color: $white;
+            }
+        }
     }
 }
 
@@ -130,6 +138,9 @@
             margin-left: -$margin;
             margin-right: -$margin;
             background-color: $color-main;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 100%;
 
             a {
                 color: $white;
@@ -158,6 +169,7 @@
     display: flex;
     align-items: center;
     margin-top: ems(26px, 22px);
+    font-size: 1.1em;
 
     @include parent('.post--regular') {
         @include media('>tablet') {
@@ -178,7 +190,6 @@
 .post-date {
     display: flex;
     align-items: center;
-    font-size: 1em;
     margin-right: ems(24px, 22px);
 
     &__icon {
@@ -198,7 +209,6 @@
 }
 
 .tag {
-    font-size: 1em;
     margin-right: ems(12px, 22px);
     @extend %link-reset;
     font-weight: 700;
