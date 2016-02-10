@@ -18,6 +18,10 @@ gulp.task('sass', function() {
 });
 
 gulp.task('transfer', function() {
-    return gulp.src('./bower_components/include-media/dist/*.scss')
+    gulp.src('./bower_components/include-media/dist/*.scss')
         .pipe(gulp.dest('./assets/scss/vendor'));
+    gulp.src('./bower_components/highlight/build/highlight.pack.js')
+        .pipe(gulp.dest('./assets/js'));
+    gulp.src('./bower_components/highlight/src/styles/monokai-sublime.css')
+        .pipe(gulp.dest('./assets/css'));
 });

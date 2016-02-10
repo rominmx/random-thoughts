@@ -13,6 +13,7 @@
     "tests"
   ],
   "dependencies": {
-    "include-media": "^1.4.2"
+    "include-media": "^1.4.2",
+    "highlight": "^9.1.0"
   }
 }
