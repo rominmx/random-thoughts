@@ -36,7 +36,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        background-size: 100%;
+        background-size: cover;
         background-repeat: no-repeat;
         background-position: center top;
         @include relative(1);
@@ -159,7 +159,9 @@
             box-shadow: $gap 0 0 $white, -$gap 0 0 $white;
 
             a {
-                color: #777;
+                @include parent('.post-item--faded') {
+                    color: #777;
+                }
             }
         }
     }
@@ -180,7 +182,7 @@
 }
 
 .calendar {
-    @each $type, $color in (featured, $white), (regular, $black) {
+    @each $type, $color in (featured, $white), (regular, $black), (article, $white) {
         &--#{$type} {
             fill: $color;
         }
@@ -215,6 +217,10 @@
     font-family: $font-headings;
 
     @include parent('.post--featured') {
+        color: $white;
+    }
+
+    @include parent('.article-info') {
         color: $white;
     }
 }

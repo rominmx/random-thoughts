@@ -1,17 +1,21 @@
 {{!< default}}
 {{#post}}
-    <article class="{{post_class}}">
-        <header class="post-header">
-            <h1 class="post-title">{{title}}</h1>
-            <section class="post-meta">
-                <time class="post-date" datetime="{{date format='YYYY-MM-DD'}}">
-                    {{date format="DD MMMM YYYY"}}
-                </time>
-                {{tags prefix=" on "}}
-            </section>
-        </header>
-        <section class="post-content">
-            {{content}}
+    <header class="article-meta-wrap{{#if image}} article-meta-wrap--faded{{/if}}" {{> index/background}}>
+        <section class="article-meta">
+            <h1 class="article-meta__head article-head"><strong class="article-head__text">{{title}}</strong></h1>
+            <div class="article-meta__info article-info">
+                {{> index/date class="article" type="article"}}
+                {{> index/tags class="article"}}
+            </div>
+            {{#if meta_description}}
+                <p class="article-meta__description">
+                    {{meta_description}}
+                </p>
+            {{/if}}
         </section>
+    </header>
+
+    <article class="article">
+        {{content}}
     </article>
 {{/post}}
