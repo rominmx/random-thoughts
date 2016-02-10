@@ -37,10 +37,10 @@
     font-family: $font-headings;
 
     &__text {
+        line-height: 1.16;
         display: inline;
         background-color: $white;
         box-shadow: $gap 0 0 $white, -$gap 0 0 $white;
-        line-height: 1.16;
         color: $color-main;
 
         @include parent('.article-meta-wrap--faded') {
@@ -73,7 +73,7 @@
 }
 
 .article {
-    @include media('<=tablet') {
+    @include media('<=desktop') {
         font-size: 18px;
         padding: map-get($padding, tablet);
     }

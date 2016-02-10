@@ -16,7 +16,13 @@
 
 .post-item {
     flex-grow: 1;
-    
+
+    &:only-child {
+        $height: 'calc(100vh - #{$footer-height})';
+
+        height: #{$height};
+    }
+
     &--faded {
         @extend %faded;
     }
@@ -43,19 +49,11 @@
     }
     
     &--regular {
-        @include media('>=desktop') {
-            flex-basis: 33.33333%;
-        }
-
-        @include media('<desktop') {
-            flex-basis: 100%;
-        }
 
         order: 2;
 
         @include media('<=tablet') {
             background-color: $grey;
-            padding: map-get($padding, tablet) map-get($padding, tablet) 0;
             font-size: 18px;
         }
     }
@@ -80,13 +78,7 @@
     }
 
     &--regular {
-        @each $mq, $padding-type in ('>desktop', desktop), ('<=desktop', tablet) {
-            padding: map-get($padding, $padding-type);
-        }
-
-        @include media('<=tablet') {
-            background-color: $white;
-        }
+        background-color: $white;
     }
 
     &__announce {
@@ -97,7 +89,7 @@
         a {
             font-weight: 700;
 
-            @include parent('.post--featured') {
+            @include parent('.post-item--featured') {
                 color: $white;
             }
         }
@@ -107,8 +99,7 @@
 .post-head {
     $gap: ems(12px, 48px);
 
-    margin-top: 0;
-    margin-bottom: 0;
+    @include each-side(margin, 0, top, bottom);
     line-height: 1.16;
 
     a {
@@ -119,8 +110,7 @@
 
 
     &--featured {
-        margin-left: $gap;
-        margin-right: $gap;
+        @include each-side(margin, $gap, left, right);
         font-size: ems(48px, 22px);
     }
     
@@ -131,27 +121,21 @@
     &--regular {
         @include relative(2);
 
-        @include media('<=tablet') {
-            $margin: map-get($padding, tablet);
-            font-size: 2em;
-            margin-top: -$margin;
-            margin-left: -$margin;
-            margin-right: -$margin;
-            background-color: $color-main;
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: 100%;
+        font-size: 1.8em;
+        background-color: $color-main;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100%;
 
-            a {
-                color: $white;
-                display: block;
-                padding: .5 * $margin $margin;
-                @include relative(3);
-            }
+        a {
+            color: $white;
+            display: block;
+            @include relative(3);
         }
     }
     
     &__text {
+        line-height: 1.16;
 
         &--featured {
             display: inline;
@@ -169,16 +153,10 @@
 
 .post-info {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     margin-top: ems(26px, 22px);
     font-size: 1.1em;
-
-    @include parent('.post--regular') {
-        @include media('>tablet') {
-            flex-direction: column;
-            align-items: flex-start;
-        }
-    }
 }
 
 .calendar {
@@ -202,25 +180,5 @@
         font-family: $font-headings;
         font-weight: 700;
         margin-left: ems(8px, 16px);
-    }
-}
-
-.tags {
-    @extend %list-reset;
-    display: flex;
-}
-
-.tag {
-    margin-right: ems(12px, 22px);
-    @extend %link-reset;
-    font-weight: 700;
-    font-family: $font-headings;
-
-    @include parent('.post--featured') {
-        color: $white;
-    }
-
-    @include parent('.article-info') {
-        color: $white;
     }
 }

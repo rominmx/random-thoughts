@@ -1,0 +1,19 @@
+.tags {
+    @extend %list-reset;
+    display: flex;
+}
+
+.tag {
+    margin-right: ems(12px, 22px);
+    @extend %link-reset;
+    font-weight: 700;
+    font-family: $font-headings;
+
+    @include parent('.post-item--featured') {
+        color: $white;
+    }
+
+    @include parent('.article-info') {
+        color: $white;
+    }
+}

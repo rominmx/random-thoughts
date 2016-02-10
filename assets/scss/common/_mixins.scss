@@ -24,6 +24,12 @@
     }
 }
 
+@mixin each-side($property, $value, $sides...) {
+    @each $side in $sides {
+        #{$property}-#{$side}: $value;
+    }
+}
+
 @mixin relative($zi) {
     position: relative;
     z-index: $zi;

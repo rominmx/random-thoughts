@@ -1,0 +1,52 @@
+$gap: 24px;
+$index-bg: $grey;
+$post-padding: 24px;
+
+$half-gap: .5 * $gap;
+
+.posts {
+    background-color: $index-bg;
+    @include each-side(padding, $half-gap, left, right);
+}
+
+.post-item {
+    display: flex;
+    
+    &--featured {
+        @include each-side(margin, -$half-gap, left, right);
+    }
+    
+    &--regular {
+        margin-top: $gap;
+        @include each-side(padding, $half-gap, left, right);
+        background-color: $index-bg;
+        box-sizing: border-box;
+
+        @include media('<=desktop', '>tablet') {
+            flex-basis: 33.33333%;
+        }
+
+        @include media('<=tablet') {
+            flex-basis: 50%;
+        }
+    }
+}
+
+.post {
+    &--regular {
+        @include each-side(padding, $post-padding, left, right, bottom);
+        flex-basis: 100%;
+    }
+}
+
+.post-head {
+
+    &--regular {
+        @include each-side(margin, -$post-padding, left, right);
+
+        a {
+            display: block;
+            padding: .5 * $post-padding $post-padding;
+        }
+    }
+}
