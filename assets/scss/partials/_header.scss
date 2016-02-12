@@ -1,17 +1,36 @@
 $em: 24px;
 
+@mixin header-size($fz) {
+    $height: $header-height * $fz / $header-fz;
+
+    .header {
+        font-size: rem($fz);
+        height: em($height, $fz);
+
+        &__logo {
+            @include size(em($height, $fz));
+        }
+    }
+
+    .content {
+        margin-top: - rem($height);
+    }
+
+    .post--featured,
+    .article-meta {
+        margin-top: rem($height);
+    }
+}
+
 .header {
     color: $header-color;
-    font-size: rems($em);
-    height: ems($header-height, $em);
     display: flex;
     align-items: center;
     @include relative(3);
+    background-color: rgba(0,0,0,.1);
 
     &__logo {
-        @include size(ems($header-height, $em));
         @extend %link-reset;
-
 
         img {
             @include size(100%, auto);
@@ -23,20 +42,32 @@ $em: 24px;
     &__link {
         $fz: 32px;
         @extend %link-reset;
-        font-size: ems($fz, $em);
         color: $header-color;
-        font-family: $font-headings;
-        font-weight: 700;
-        padding-left: ems(24px, $fz);
-        padding-right: ems(12px, $fz);
+        font: 700 em($fz, $em) $font-headings;
+        padding-left: em(24px, $fz);
+        padding-right: em(12px, $fz);
     }
 
     &__description {
-        font-size: 1em;
-        font-family: $font-light;
-        font-weight: 100;
+        font: 100 1em $font-light;
         @include media('<=tablet') {
             display: none;
         }
     }
+}
+
+@include media('<=phone') {
+    @include header-size(16px);
+}
+
+@include media('>phone', '<=desktop') {
+    @include header-size(22px);
+}
+
+@include media('>desktop', '<desktop-huge') {
+    @include header-size(24px);
+}
+
+@include media('>=desktop-huge') {
+    @include header-size(28px);
 }

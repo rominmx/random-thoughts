@@ -27,13 +27,13 @@
 }
 
 .article-head {
-    $gap: ems(12px, 48px);
+    $gap: em(12px, 48px);
 
     margin-top: 0;
     margin-bottom: 0;
     margin-left: $gap;
     margin-right: $gap;
-    font-size: ems(48px, 22px);
+    font-size: em(48px, 22px);
     font-weight: 700;
     font-family: $font-headings;
 
@@ -53,23 +53,23 @@
 .article-info {
     display: flex;
     align-items: center;
-    margin-top: ems(26px, 22px);
+    margin-top: em(26px, 22px);
     font-size: 1.1em;
 }
 
 .article-date {
     display: flex;
     align-items: center;
-    margin-right: ems(24px, 22px);
+    margin-right: em(24px, 22px);
 
     &__icon {
-        @include size(ems(32px, 16px));
+        @include size(em(32px, 16px));
     }
 
     &__time {
         font-family: $font-headings;
         font-weight: 700;
-        margin-left: ems(8px, 16px);
+        margin-left: em(8px, 16px);
     }
 }
 
@@ -87,7 +87,7 @@
     }
 
     h2 {
-        font-size: ems(36px, 18px);
+        font-size: em(36px, 18px);
     }
     
     img {

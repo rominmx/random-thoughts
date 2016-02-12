@@ -54,8 +54,15 @@
     }
 }
 
+@include media('<=phone') {
+    @include grid(12px, 12px, 12px);
+}
+
+@include media('>phone', '<=phone-huge') {
+    @include grid(16px, 14px, 14px);
+}
+
 @include media('<=phone-huge') {
-    @include grid(18px, 16px, 16px);
     @include cells(1);
 }
 

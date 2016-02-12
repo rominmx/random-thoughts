@@ -3,7 +3,7 @@
 }
 
 .tag {
-    margin-right: ems(12px, 22px);
+    margin-right: em(12px, 22px);
     @extend %link-reset;
     font-weight: 700;
     font-family: $font-headings;

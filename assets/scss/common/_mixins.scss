@@ -45,11 +45,11 @@
     z-index: $zi;
 }
 
-@function ems($value, $base: $fz) {
+@function em($value, $base: $fz) {
     @return 0em + $value / $base;
 }
 
-@function rems($value) {
+@function rem($value) {
     @return 0rem + $value / $rem;
 }
 
@@ -58,7 +58,7 @@
         min-height: 100%;
         margin-bottom: -$footer-height;
 
-        &:after {
+        &::after {
             content: '';
             display: block;
             height: $footer-height;

@@ -11,7 +11,6 @@
     @extend %list-reset;
     display: flex;
     flex-wrap: wrap;
-    margin-top: -$header-height;
     background-color: $grid-bg;
 }
 
@@ -63,9 +62,8 @@
         font-size: 22px;
         flex-basis: 100%;
 
-        margin-top: $header-height;
-        padding-top: ems(80px, 22px);
-        padding-bottom: ems(80px, 22px);
+        padding-top: em(80px, 22px);
+        padding-bottom: em(80px, 22px);
 
         color: #fff;
         @include relative(3);
@@ -78,7 +76,7 @@
 
     &__announce {
         font-size: 1em;
-        margin-top: ems(26px, 22px);
+        margin-top: em(26px, 22px);
         margin-bottom: 0;
 
         a {
@@ -92,7 +90,7 @@
 }
 
 .post-head {
-    $gap: ems(12px, 48px);
+    $gap: em(12px, 48px);
 
     @include each-side(margin, 0, top, bottom);
     line-height: 1.16;
@@ -106,7 +104,7 @@
 
     &--featured {
         @include each-side(margin, $gap, left, right);
-        font-size: ems(48px, 22px);
+        font-size: em(48px, 22px);
     }
     
     &--faded {
@@ -150,7 +148,7 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    margin-top: ems(26px, 22px);
+    margin-top: em(26px, 22px);
     font-size: 1.1em;
 }
 
@@ -165,15 +163,15 @@
 .post-date {
     display: flex;
     align-items: center;
-    margin-right: ems(24px, 22px);
+    margin-right: em(24px, 22px);
 
     &__icon {
-        @include size(ems(32px, 16px));
+        @include size(em(32px, 16px));
     }
     
     &__time {
         font-family: $font-headings;
         font-weight: 700;
-        margin-left: ems(8px, 16px);
+        margin-left: em(8px, 16px);
     }
 }
