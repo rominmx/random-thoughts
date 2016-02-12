@@ -1,12 +1,5 @@
 .article-meta-wrap {
-    margin-top: -$header-height;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center top;
-    background-color: $color-main;
+    @extend %post-header-wrap;
     @include relative(1);
 
     &--faded {
@@ -15,15 +8,7 @@
 }
 
 .article-meta {
-    color: $white;
-    @include relative(3);
-    font-size: 22px;
-    flex-basis: 100%;
-    box-sizing: border-box;
-
-    margin-top: $header-height;
-    padding-top: 80px;
-    padding-bottom: 80px;
+    @extend %post-header;
 }
 
 .article-head {
@@ -40,36 +25,7 @@
     &__text {
         line-height: 1.16;
         display: inline;
-        //background-color: $white;
-        //box-shadow: $gap 0 0 $white, -$gap 0 0 $white;
         color: $white;
-
-        @include parent('.article-meta-wrap--faded') {
-            color: $white;
-        }
-    }
-}
-
-.article-info {
-    display: flex;
-    align-items: center;
-    margin-top: em(26px, 22px);
-    font-size: 1.1em;
-}
-
-.article-date {
-    display: flex;
-    align-items: center;
-    margin-right: em(24px, 22px);
-
-    &__icon {
-        @include size(em(32px, 16px));
-    }
-
-    &__time {
-        font-family: $font-headings;
-        font-weight: 700;
-        margin-left: em(8px, 16px);
     }
 }
 
@@ -79,6 +35,10 @@
 
     @include media('<=desktop') {
         font-size: 18px;
+    }
+
+    @include media('>=desktop-huge') {
+        font-size: 20px;
     }
 
     h2, h3, h4, h5 {

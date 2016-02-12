@@ -1,0 +1,46 @@
+%post-header-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-color: $color-main;
+    @include relative(1);
+}
+
+%post-header {
+    flex-basis: 100%;
+    color: $white;
+    @include relative(3);
+    box-sizing: border-box;
+    padding-top: em(80px, 22px);
+    padding-bottom: em(80px, 22px);
+}
+
+@mixin post-header($fz) {
+    .post--featured,
+    .article-meta {
+        font-size: $fz;
+    }
+}
+
+@include media('<=phone') {
+    @include post-header(16px);
+}
+
+@include media('<phone-huge', '>phone') {
+    @include post-header(18px);
+}
+
+@include media('>=phone-huge', '<=desktop') {
+    @include post-header(20px);
+}
+
+@include media('>desktop', '<=desktop-medium') {
+    @include post-header(22px);
+}
+
+@include media('>desktop-medium') {
+    @include post-header(24px);
+}

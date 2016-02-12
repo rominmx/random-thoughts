@@ -1,0 +1,33 @@
+.post-info,
+.article-info {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: em(26px, 22px);
+    font-size: 1.1em;
+}
+
+.calendar {
+    @each $type, $color in (featured, $white), (regular, $black), (article, $white) {
+        &--#{$type} {
+            fill: $color;
+        }
+    }
+}
+
+.post-date,
+.article-date {
+    display: flex;
+    align-items: center;
+    margin-right: em(24px, 22px);
+
+    &__icon {
+        @include size(em(32px, 16px));
+    }
+
+    &__time {
+        font-family: $font-headings;
+        font-weight: 700;
+        margin-left: em(8px, 16px);
+    }
+}

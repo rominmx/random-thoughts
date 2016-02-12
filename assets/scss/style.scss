@@ -7,7 +7,9 @@
 @import 'common/layout';
 @import 'partials/header';
 @import 'partials/footer';
+@import 'partials/common/grid';
+@import 'partials/common/head';
 @import 'partials/index';
-@import 'partials/index/grid';
-@import 'partials/index/tags';
+@import 'partials/common/date';
+@import 'partials/common/tags';
 @import 'partials/post';

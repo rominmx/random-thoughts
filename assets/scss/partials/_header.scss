@@ -60,7 +60,11 @@ $em: 24px;
     @include header-size(16px);
 }
 
-@include media('>phone', '<=desktop') {
+@include media('>phone', '<=phone-huge') {
+    @include header-size(18px);
+}
+
+@include media('>phone-huge', '<=desktop') {
     @include header-size(22px);
 }
 
