@@ -64,8 +64,8 @@
         flex-basis: 100%;
 
         margin-top: $header-height;
-        padding-top: 80px;
-        padding-bottom: 80px;
+        padding-top: ems(80px, 22px);
+        padding-bottom: ems(80px, 22px);
 
         color: #fff;
         @include relative(3);
