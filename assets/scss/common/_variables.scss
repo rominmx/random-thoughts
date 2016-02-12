@@ -1,10 +1,19 @@
+/* Breakpoints */
+$breakpoints: (
+    'phone': 320px,
+    'phone-huge': 720px,
+    'tablet': 768px,
+    'desktop': 1024px,
+    'desktop-medium': 1366px,
+    'desktop-huge': 1920px
+);
+
 /* Colors */
 $color-main: #2772db;
 $color-link: $color-main;
 $black: #000 !default;
 $white: #fff !default;
 $grey: #eee !default;
-
 
 /* Fonts */
 $font-regular: 'Roboto Regular', sans-serif;
@@ -25,3 +34,5 @@ $header-height: 60px;
 $footer-color: #000;
 $footer-bg: #eee;
 $footer-height: 60px;
+
+$grid-bg: #eee;

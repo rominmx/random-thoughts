@@ -1,52 +1,85 @@
-$gap: 24px;
-$index-bg: $grey;
-$post-padding: 24px;
+@mixin grid($margin, $gap, $padding) {
+    $half-gap: .5 * $gap;
+    $margin-outer: $margin - $half-gap;
 
-$half-gap: .5 * $gap;
-
-.posts {
-    background-color: $index-bg;
-    @include each-side(padding, $half-gap, left, right);
-}
-
-.post-item {
-    display: flex;
-    
-    &--featured {
-        @include each-side(margin, -$half-gap, left, right);
+    .header,
+    .footer,
+    .article-meta,
+    .article {
+        @include each-side(padding, $margin, left, right);
     }
-    
-    &--regular {
-        margin-top: $gap;
-        @include each-side(padding, $half-gap, left, right);
-        background-color: $index-bg;
-        box-sizing: border-box;
 
-        @include media('<=desktop', '>tablet') {
-            flex-basis: 33.33333%;
+    .posts {
+        @include each-side(padding, $margin-outer, left, right);
+    }
+
+    .post-item {
+
+        &--featured {
+            @include each-side(margin, -$margin-outer, left, right);
         }
 
-        @include media('<=tablet') {
-            flex-basis: 50%;
+        &--regular {
+            margin-top: $gap;
+            @include each-side(padding, $half-gap, left, right);
+        }
+    }
+
+    .post {
+
+        &--featured {
+            @include each-side(padding, $margin, left, right);
+        }
+
+        &--regular {
+            @include each-side(padding, $padding, left, right, bottom);
+        }
+    }
+
+    .post-head {
+
+        &--regular {
+            @include each-side(margin, -$padding, left, right);
+
+            a {
+                padding: .5 * $padding $padding;
+            }
         }
     }
 }
 
-.post {
-    &--regular {
-        @include each-side(padding, $post-padding, left, right, bottom);
-        flex-basis: 100%;
+@mixin cells($n) {
+    .post-item--regular {
+        flex-basis: percentage(1/$n);
     }
 }
 
-.post-head {
+@include media('<=phone-huge') {
+    @include grid(18px, 16px, 16px);
+    @include cells(1);
+}
 
-    &--regular {
-        @include each-side(margin, -$post-padding, left, right);
+@include media('<=desktop', '>phone-huge') {
+    @include grid(24px, 24px, 18px);
+}
 
-        a {
-            display: block;
-            padding: .5 * $post-padding $post-padding;
-        }
-    }
+@include media('>desktop', '<=desktop-medium') {
+    @include grid(48px, 32px, 24px);
+}
+
+@include media('>desktop-medium', '<desktop-huge') {
+    @include grid(120px, 32px, 24px);
+}
+
+@include media('>=desktop-huge') {
+    @include grid(240px, 36px, 24px);
+    @include cells(3);
+}
+
+@include media('<desktop-huge', '>tablet') {
+    @include cells(3);
+}
+
+@include media('<=tablet', '>phone-huge') {
+    @include cells(2);
 }

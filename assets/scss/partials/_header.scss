@@ -1,17 +1,12 @@
 $em: 24px;
 
 .header {
-    //@include color($header-color, $header-bg);
     color: $header-color;
     font-size: rems($em);
     height: ems($header-height, $em);
     display: flex;
     align-items: center;
     @include relative(3);
-    
-    @include media('<=desktop') {
-        padding-left: map-get($padding, tablet);
-    }
 
     &__logo {
         @include size(ems($header-height, $em));
@@ -28,11 +23,6 @@ $em: 24px;
     &__link {
         $fz: 32px;
         @extend %link-reset;
-        //@each $mq, $fs in ('>desktop', 36px), ('<=desktop', 32px) {
-        //    @include media($mq) {
-        //        font-size: ems($fs, $fz);
-        //    }
-        //}
         font-size: ems($fz, $em);
         color: $header-color;
         font-family: $font-headings;
@@ -43,11 +33,6 @@ $em: 24px;
 
     &__description {
         font-size: 1em;
-        //@each $mq, $fs in ('>desktop', 28px), ('<=desktop', 24px) {
-        //    @include media($mq) {
-        //        font-size: ems($fs, $fz);
-        //    }
-        //}
         font-family: $font-light;
         font-weight: 100;
         @include media('<=tablet') {

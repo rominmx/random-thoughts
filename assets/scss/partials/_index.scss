@@ -12,10 +12,12 @@
     display: flex;
     flex-wrap: wrap;
     margin-top: -$header-height;
+    background-color: $grid-bg;
 }
 
 .post-item {
     flex-grow: 1;
+    display: flex;
 
     &:only-child {
         $height: 'calc(100vh - #{$footer-height})';
@@ -31,10 +33,6 @@
         flex-basis: 100%;
         order: 1;
 
-        @include media('>desktop') {
-            height: 680px;
-        }
-
         @include media('<=desktop') {
             height: auto;
         }
@@ -47,13 +45,13 @@
         background-position: center top;
         @include relative(1);
     }
-    
-    &--regular {
 
+    &--regular {
+        background-color: $grid-bg;
+        box-sizing: border-box;
         order: 2;
 
         @include media('<=tablet') {
-            background-color: $grey;
             font-size: 18px;
         }
     }
@@ -63,22 +61,19 @@
 
     &--featured {
         font-size: 22px;
+        flex-basis: 100%;
 
-        @include media('>desktop') {
-            flex-basis: 66.66666%;
-        }
-        
-        @include media('<=desktop') {
-            padding: #{80px + $header-height} map-get($padding, tablet) 80px;
-            flex-basis: 100%;
-        }
-        
+        margin-top: $header-height;
+        padding-top: 80px;
+        padding-bottom: 80px;
+
         color: #fff;
         @include relative(3);
     }
 
     &--regular {
         background-color: $white;
+        flex-basis: 100%;
     }
 
     &__announce {

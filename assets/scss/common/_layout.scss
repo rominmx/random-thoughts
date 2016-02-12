@@ -9,6 +9,10 @@ html {
     font: $rem $font-regular;
 }
 
+body {
+    background-color: $grid-bg;
+}
+
 a {
     color: $color-link;
 
