@@ -54,6 +54,14 @@
     &--regular {
         background-color: $white;
         flex-basis: 100%;
+
+        @include media('<=phone-huge') {
+            font-size: 16px;
+        }
+
+        @include media('>=desktop-huge') {
+            font-size: 20px;
+        }
     }
 
     &__announce {
@@ -86,7 +94,7 @@
 
     &--featured {
         @include each-side(margin, $gap, left, right);
-        font-size: em(48px, 22px);
+        font-size: 2.4em;
     }
     
     &--faded {

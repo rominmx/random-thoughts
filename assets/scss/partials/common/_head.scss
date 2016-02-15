@@ -42,5 +42,5 @@
 }
 
 @include media('>desktop-medium') {
-    @include post-header(24px);
+    @include post-header(22px);
 }

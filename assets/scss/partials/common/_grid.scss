@@ -9,6 +9,10 @@
         @include each-side(padding, $margin, left, right);
     }
 
+    .article {
+        @include each-side(padding, $gap, top, bottom);
+    }
+
     .posts {
         @include each-side(padding, $margin-outer, left, right);
     }
@@ -75,12 +79,12 @@
 }
 
 @include media('>desktop-medium', '<desktop-huge') {
-    @include grid(120px, 32px, 24px);
+    @include grid(180px, 32px, 24px);
 }
 
 @include media('>=desktop-huge') {
-    @include grid(240px, 36px, 24px);
-    @include cells(3);
+    @include grid(480px, 36px, 24px);
+    @include cells(1);
 }
 
 @include media('<desktop-huge', '>tablet') {

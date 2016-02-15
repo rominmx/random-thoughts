@@ -73,5 +73,5 @@ $em: 24px;
 }
 
 @include media('>=desktop-huge') {
-    @include header-size(28px);
+    @include header-size(24px);
 }

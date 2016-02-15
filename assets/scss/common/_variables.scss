@@ -11,6 +11,7 @@ $breakpoints: (
 /* Colors */
 $color-main: #2772db;
 $color-link: $color-main;
+$color-neutral: #aaa;
 $black: #000 !default;
 $white: #fff !default;
 $grey: #eee !default;
@@ -20,7 +21,7 @@ $font-regular: 'Roboto Regular', sans-serif;
 $font-bold: 'Roboto Black', sans-serif;
 $font-light: 'Roboto Light', sans-serif;
 $font-headings: 'Roboto Slab Bold', sans-serif;
-$font-mono: 'Roboto Mono', monospaced;
+$font-mono: 'Roboto Mono', monospace;
 $rem: 16px;
 
 $padding: (desktop: 36px, tablet: 24px);
