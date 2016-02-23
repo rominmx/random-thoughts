@@ -67,7 +67,7 @@
     &__announce {
         font-size: 1em;
         margin-top: em(26px, 22px);
-        margin-bottom: 0;
+        margin-bottom: .6em;
 
         a {
             font-weight: 700;
@@ -127,7 +127,7 @@
 
             a {
                 @include parent('.post-item--faded') {
-                    color: #777;
+                    color: $color-neutral;
                 }
             }
         }

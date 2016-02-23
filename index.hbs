@@ -2,7 +2,7 @@
 
 <ul class="posts">
 {{#foreach posts}}
-    {{#if featured}}
+    {{#if @first}}
         <li class="post-item post-item--featured{{#if image}} post-item--faded{{/if}}" {{> index/background}}>
             <article class="post post--featured">
                 <h2 class="post__head post-head post-head--featured">

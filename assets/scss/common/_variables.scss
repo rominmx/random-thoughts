@@ -11,10 +11,11 @@ $breakpoints: (
 /* Colors */
 $color-main: #2772db;
 $color-link: $color-main;
-$color-neutral: #aaa;
+$color-neutral: grayscale($color-main);
 $black: #000 !default;
 $white: #fff !default;
 $grey: #eee !default;
+$dark-grey: #777 !default;
 
 /* Fonts */
 $font-regular: 'Roboto Regular', sans-serif;
@@ -29,7 +30,7 @@ $padding: (desktop: 36px, tablet: 24px);
 /* Header */
 $header-bg: $color-main;
 $header-color: #fff;
-$header-height: 60px;
+$header-height: 62.83px;
 $header-fz: 24px;
 
 /* Footer */

@@ -83,7 +83,7 @@
 }
 
 @include media('>=desktop-huge') {
-    @include grid(480px, 36px, 24px);
+    @include grid(525px, 36px, 24px);
     @include cells(1);
 }
 

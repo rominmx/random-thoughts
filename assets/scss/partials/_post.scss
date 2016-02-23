@@ -14,17 +14,12 @@
 .article-head {
     $gap: em(12px, 48px);
 
-    margin-top: 0;
-    margin-bottom: 0;
-    margin-left: $gap;
-    margin-right: $gap;
-    font-size: 2.4em;
-    font-weight: 700;
-    font-family: $font-headings;
+    margin: 0 $gap;
+    font: 700 2.4em $font-headings;
     color: $color-main;
 
     @include parent('.article-meta-wrap--faded') {
-        color: #777;
+        color: $color-neutral;
     }
 
     &__text {
@@ -53,26 +48,29 @@
 
     h2, h3, h4, h5 {
         margin-top: 0;
-        line-height: 1;
+        line-height: 1.16;
         font-family: $font-headings;
+        color: $color-neutral;
     }
 
+    $PHI: 1.6180034;
+
     h2 {
-        font-size: em(36px, 18px);
+        font-size: 1em * $PHI * $PHI;
     }
 
     h3 {
-        font-size: em(32px, 18px);
+        font-size: 1em * $PHI;
     }
 
     h4 {
-        font-size: em(24px, 18px);
+        font-size: 1em;
     }
 
     p {
         margin-top: 0;
         margin-bottom: 1.5em;
-        line-height: em(28px, 18px);
+        line-height: 1.6180034;
         
         code {
             background-color: #23241f;
@@ -95,11 +93,13 @@
 
     ul, ol {
         @include each-side(margin, 1.5em, top, bottom);
+        padding-left: 0;
+        list-style-type: none;
     }
 
     li {
         @include relative(1);
-        padding-left: 1em;
+        padding-left: 1.2em;
         @include each-side(margin, .8em, top, bottom);
         line-height: 1;
 
@@ -109,8 +109,6 @@
     }
 
     ul {
-        padding-left: 0;
-        list-style-type: none;
 
         ul {
             @include each-side(margin, 1em, top, bottom);
@@ -120,7 +118,7 @@
 
             &::before {
                 content: '';
-                left: 0;
+                left: .6em;
                 top: .5em;
                 background-color: $color-main;
                 @include size(6px);
@@ -128,6 +126,7 @@
                 border: 1px solid $color-main;
                 border-radius: 3px;
                 margin-top: -3px;
+                margin-left: -3px;
             }
 
             li {
@@ -139,8 +138,6 @@
     }
 
     ol {
-        padding-left: 0;
-        list-style-type: none;
         counter-reset: list;
 
         li {
@@ -149,7 +146,7 @@
                 top: .1em;
                 font-size: .9em;
                 counter-increment: list;
-                content: counter(list);
+                content: counter(list)')';
             }
         }
     }
