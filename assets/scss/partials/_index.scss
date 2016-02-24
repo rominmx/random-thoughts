@@ -7,6 +7,16 @@
     }
 }
 
+%banner {
+    @include absolute(3);
+    @include nullify(left, top, right, bottom);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: grayscale(1) contrast(400%) brightness(400%);
+    opacity: .5;
+}
+
 .posts {
     @extend %list-reset;
     display: flex;
@@ -42,6 +52,10 @@
         @include media('<=tablet') {
             font-size: 18px;
         }
+    }
+
+    &__image {
+        @extend %banner;
     }
 }
 

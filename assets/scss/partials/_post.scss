@@ -7,6 +7,10 @@
     }
 }
 
+.article-image {
+    @extend %banner;
+}
+
 .article-meta {
     @extend %post-header;
 }
@@ -16,11 +20,7 @@
 
     margin: 0 $gap;
     font: 700 2.4em $font-headings;
-    color: $color-main;
-
-    @include parent('.article-meta-wrap--faded') {
-        color: $color-neutral;
-    }
+    color: $color-neutral;
 
     &__text {
         line-height: 1.16;
