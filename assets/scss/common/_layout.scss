@@ -1,9 +1,13 @@
+::selection {
+    background-color: complement($color-main);
+    color: $white;
+}
+
 @each $mq, $footer-height in ('>=desktop', 120px), ('<desktop', 60px) {
     @include media($mq) {
         @include sticky-footer($footer-height, '.page-wrap', '.footer');
     }
 }
-
 
 .sprite {
     @include size(0);

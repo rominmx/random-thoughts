@@ -61,17 +61,17 @@ $em: 24px;
 }
 
 @include media('>phone', '<=phone-huge') {
-    @include header-size(18px);
+    @include header-size(16px);
 }
 
 @include media('>phone-huge', '<=desktop') {
-    @include header-size(22px);
+    @include header-size(20px);
 }
 
 @include media('>desktop', '<desktop-huge') {
-    @include header-size(24px);
+    @include header-size(22px);
 }
 
 @include media('>=desktop-huge') {
-    @include header-size(24px);
+    @include header-size(22px);
 }
