@@ -1,6 +1,6 @@
 {{!< default}}
 {{#post}}
-    <header class="article-meta-wrap">
+    <header class="article-meta-wrap{{#if image}} article-meta-wrap--faded{{/if}}">
         {{#if image}}<div class="article-image" style="background-image: url('{{image}}')"></div>{{/if}}
         <section class="article-meta">
             <h1 class="article-meta__head article-head"><strong class="article-head__text">{{title}}</strong></h1>

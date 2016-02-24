@@ -3,7 +3,7 @@
 <ul class="posts">
 {{#foreach posts}}
     {{#if @first}}
-        <li class="post-item post-item--featured">
+        <li class="post-item post-item--featured{{#if image}} post-item--faded{{/if}}">
             {{#if image}}<div class="post-item__image" style="background-image: url('{{image}}')"></div>{{/if}}
             <article class="post post--featured">
                 <h2 class="post__head post-head post-head--featured">

@@ -1,7 +1,7 @@
 %faded {
     &::after {
         content: '';
-        @include absolute(2);
+        @include absolute(3);
         @include nullify(left, top, right, bottom);
         background-color: rgba(0,0,0,0.3);
     }
@@ -13,8 +13,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    filter: grayscale(1) contrast(400%) brightness(400%);
-    opacity: .5;
+    filter: url(#filter) brightness(90%) contrast(200%);
 }
 
 .posts {
@@ -127,7 +126,7 @@
         a {
             color: $white;
             display: block;
-            @include relative(3);
+            @include relative(4);
         }
     }
     
