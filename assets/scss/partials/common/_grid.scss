@@ -15,8 +15,9 @@
 
     .posts {
         @include each-side(padding, $margin-outer, left, right);
+        margin-bottom: $gap;
     }
-
+    
     .post-item {
 
         &--featured {

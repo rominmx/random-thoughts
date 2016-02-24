@@ -1,5 +1,5 @@
 .footer {
-    @include color($footer-color, $footer-bg);
+    @include color($white, $color-main);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -8,5 +8,9 @@
         @include media($mq) {
             font-size: $fz;
         }
+    }
+
+    a {
+        color: $white;
     }
 }
